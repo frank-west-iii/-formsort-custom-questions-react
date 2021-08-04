@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Basic from './Basic.js';
+import Default from './Default.js';
+
 
 function App() {
+  const componentMap = {
+    basic: Basic,
+  };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const component = urlParams.get('component');
+
+  const Component = componentMap[component] || Default;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Component />
     </div>
   );
 }
