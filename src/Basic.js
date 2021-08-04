@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getResponderUuid } from "@formsort/custom-question-api";
+import { getResponderUuid } from '@formsort/custom-question-api';
 
 function Basic() {
   const [uuid, setUuid] = useState('no uuid');
@@ -7,9 +7,11 @@ function Basic() {
   useEffect(() => {
     const run = async () => {
       const uuid = await getResponderUuid();
-      setUuid(uuid)
-    }
-    run()}, [])
+      setUuid(uuid);
+    };
+    run();
+  }, []);
+
   return (
     <div>
       <h1>Basic</h1>
